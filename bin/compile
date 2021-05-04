@@ -27,7 +27,7 @@ if [ -f $ENV_DIR/PROJECT_PATH ]; then
 		cp -R $TMP_DIR/. $BUILD_DIR/
 		echo "       copying custom npm package"
 		echo $BUILD_DIR/events
-		mv $BUILD_DIR/$CUSTOM_NPM_PACKAGE $BUILD_DIR/..
+		mv $BUILD_DIR/events $BUILD_DIR/..
 		echo "       cleaning tmp dir $TMP_DIR"
 		rm -rf $TMP_DIR
 		exit 0
