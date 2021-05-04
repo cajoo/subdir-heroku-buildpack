@@ -20,7 +20,7 @@ if [ -f $ENV_DIR/PROJECT_PATH ]; then
 		echo "       moving working dir: $PROJECT_PATH to $TMP_DIR"
 		cp -R $BUILD_DIR/$PROJECT_PATH/. $TMP_DIR/
 		mkdir $TMP_DIR/$SUB_PACKAGE_PATH
-		cp $BUILD_DIR/$SUB_PACKAGE_PATH $TMP_DIR/$CUSTOM_NPM_PACKAGE
+		cp -R $BUILD_DIR/$SUB_PACKAGE_PATH $TMP_DIR/$CUSTOM_NPM_PACKAGE
 		ls -al $TMP_DIR/$SUB_PACKAGE_PATH
 	 	echo "       cleaning build dir $BUILD_DIR"
 		rm -rf $BUILD_DIR/*
