@@ -24,6 +24,7 @@ if [ -f $ENV_DIR/PROJECT_PATH ]; then
 		cp -R $TMP_DIR/. $BUILD_DIR/
 		echo "       copying custom npm package"
 		ls -al $ENV_DIR
+		echo $CUSTOM_NPM_PACKAGE
 		mv $ENV_DIR/$CUSTOM_NPM_PACKAGE $BUILD_DIR/../../
 		ls -al $BUILD_DIR
 		ls -al $BUILD_DIR/../
