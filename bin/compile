@@ -10,7 +10,6 @@ ENV_DIR=${3:-}
 
 if [ -f $ENV_DIR/PROJECT_PATH ]; then
 	PROJECT_PATH=`cat $ENV_DIR/PROJECT_PATH`
-	SUB_PACKAGE_PATH=`cat $ENV_DIR/CUSTOM_NPM_PACKAGE`
 	if [ -d $BUILD_DIR/$PROJECT_PATH ]; then
 		echo "-----> Subdir buildpack in $PROJECT_PATH"
 		echo "       creating cache: $CACHE_DIR"
@@ -19,18 +18,12 @@ if [ -f $ENV_DIR/PROJECT_PATH ]; then
 		echo "       created tmp dir: $TMP_DIR"
 		echo "       moving working dir: $PROJECT_PATH to $TMP_DIR"
 		cp -R $BUILD_DIR/$PROJECT_PATH/. $TMP_DIR/
-		mkdir $TMP_DIR/$SUB_PACKAGE_PATH
-		cp -R $BUILD_DIR/$SUB_PACKAGE_PATH $TMP_DIR/$CUSTOM_NPM_PACKAGE
 	 	echo "       cleaning build dir $BUILD_DIR"
 		rm -rf $BUILD_DIR/*
 		echo "       copying preserved work dir from cache $TMP_DIR to build dir $BUILD_DIR"
 		cp -R $TMP_DIR/. $BUILD_DIR/
-		echo "       copying custom npm package"
-		echo $BUILD_DIR/events
-		mv $BUILD_DIR/events $BUILD_DIR/..
 		echo "       cleaning tmp dir $TMP_DIR"
 		rm -rf $TMP_DIR
-		ls -al $BUILD_DIR
 		exit 0
 	fi
 fi
