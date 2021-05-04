@@ -30,6 +30,7 @@ if [ -f $ENV_DIR/PROJECT_PATH ]; then
 		mv $BUILD_DIR/events $BUILD_DIR/..
 		echo "       cleaning tmp dir $TMP_DIR"
 		rm -rf $TMP_DIR
+		ls -al $BUILD_DIR
 		exit 0
 	fi
 fi
