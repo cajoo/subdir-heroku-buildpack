@@ -19,7 +19,9 @@ if [ -f $ENV_DIR/PROJECT_PATH ]; then
 		echo "       created tmp dir: $TMP_DIR"
 		echo "       moving working dir: $PROJECT_PATH to $TMP_DIR"
 		cp -R $BUILD_DIR/$PROJECT_PATH/. $TMP_DIR/
-		ls -al $BUILD_DIR/$SUB_PACKAGE_PATH
+		mkdir $TMP_DIR/$SUB_PACKAGE_PATH
+		cp $BUILD_DIR/$SUB_PACKAGE_PATH $TMP_DIR/$CUSTOM_NPM_PACKAGE
+		ls -al $TMP_DIR/$SUB_PACKAGE_PATH
 	 	echo "       cleaning build dir $BUILD_DIR"
 		rm -rf $BUILD_DIR/*
 		echo "       copying preserved work dir from cache $TMP_DIR to build dir $BUILD_DIR"
